@@ -47,7 +47,7 @@ exports.handler = async () => {
                 surveyRows.push(rowId)
                 //surveyResults.push(dataItems.map(item => escape(item.formattedValue)).join(','))
                 surveyResults.push(dataItems.reduce((items, item, i) => {
-                    items[surveyHeaders[i]] = item.overrideFormat === 'DATE_TIME' ? new Date(item.formattedValue).toISOString() : item.formattedValue
+                    items[surveyHeaders[i]] = item.overrideFormat === 'DATE_TIME' && item.formattedValue ? new Date(item.formattedValue).toISOString() : item.formattedValue
                     return items
                 }, {}))
             }
