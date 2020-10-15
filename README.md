@@ -1,4 +1,4 @@
-# Amazon Honeycode API Blog 
+# Amazon Honeycode API QuickSight integration 
 
 This project shows how to:
  * Use AWS Lambda functions to read data Amazon Honeycode and write it to an external source (Amazon S3)
