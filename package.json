@@ -1,0 +1,24 @@
+{
+  "name": "honeycode-api-blog",
+  "version": "0.1.0",
+  "bin": {
+    "honeycode-api-blog": "bin/honeycode-api-blog.js"
+  },
+  "scripts": {
+    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
+    "cdk": "cdk",
+    "test": "jest",
+    "zip": "zip -r src.zip * -x \"node_modules/*\" -x src.zip -x \"cdk.out/*\""
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.60.0",
+    "aws-cdk": "1.60.0",
+    "jest": "^26.0.4"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-events-targets": "^1.60.0",
+    "@aws-cdk/aws-s3": "^1.60.0",
+    "@aws-cdk/aws-s3-deployment": "^1.60.0",
+    "@aws-cdk/core": "1.60.0"
+  }
+}

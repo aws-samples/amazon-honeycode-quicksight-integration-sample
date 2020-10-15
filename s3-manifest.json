@@ -1,0 +1,14 @@
+{
+    "fileLocations": [
+        {
+            "URIPrefixes": [
+                "https://<BUCKET_NAME>.s3.us-west-2.amazonaws.com/"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "JSON",
+        "delimiter": ",",
+        "containsHeader": "true"
+    }
+}
