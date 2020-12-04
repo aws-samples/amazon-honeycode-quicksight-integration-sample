@@ -18,19 +18,13 @@ In this post I show how to use two of Honeycode’s APIs:
 * **GetScreenData:** Reads data from a Honeycode app screen 
 * **InvokeScreenAutomation:** Invokes an action defined in a Honeycode app screen such as adding, overwriting, and deleting data
 
-* * * 
-
 ## Prerequisite
 
 If you don’t have one already, [create a new Honeycode account](https://www.honeycode.aws/?trk=el_a134p000006gNooAAE&trkCampaign=pac-edm-2020-honeycode-homepage&sc_channel=el&sc_campaign=pac-edm-2020-honeycode-website_links-adoption-quicksight_post_link&sc_outcome=Enterprise_Digital_Marketing&sc_geo=NAMER&sc_country=US) and log in. To get started with the Honeycode APIs, [link your Honeycode team with your AWS account](https://honeycodecommunity.aws/t/connecting-honeycode-to-an-aws-account/98)
 
-* * *
-
 ## Overview
 
 In this post, I look at how to set up a survey app using Amazon Honeycode. I show how to write the survey results to an [Amazon S3](https://aws.amazon.com/s3/) bucket using an [AWS Lambda](https://aws.amazon.com/lambda/) function. Finally, I visualize the survey results data using [Amazon QuickSight](https://aws.amazon.com/quicksight/). Here’s an overview of the architecture: ![Honeycode Screen APIs sample architecture](amazon-honeycode-api-sample-architecture.png)
-
-* * *
 
 ## Create a survey app using Amazon Honeycode
 
@@ -41,8 +35,6 @@ Use the [Simple Survey template](https://www.honeycode.aws/templates/simple-surv
 This allows you to keep your Honeycode tables current and store historical data in cost-effective, long-term storage options, such as Amazon S3 and [Amazon S3 Glacier](https://aws.amazon.com/glacier/). Next, you create another Honeycode app, Survey API, with a user interface to read new survey results and to update existing survey results. Follow along with the instructional video to create this app in your own Honeycode account.
 
 [![Amazon Honeycode survey app](https://img.youtube.com/vi/2tvib8391OQ/0.jpg)](https://www.youtube.com/watch?v=2tvib8391OQ)
-
-* * *
 
 ## Creating a serverless API to read and write data from Amazon Honeycode
 
@@ -66,9 +58,6 @@ Survey API Application source: https://github.com/aws-samples/amazon-honeycode-q
 
 [![Amazon Honeycode API serverless application](https://img.youtube.com/vi/LV3FEG6O6H8/0.jpg)](https://www.youtube.com/watch?v=LV3FEG6O6H8)
 
-
-* * *
-
 ## Create an Amazon QuickSight Dashboard to visualize the survey results
 
 In this section, you use [Amazon QuickSight](https://aws.amazon.com/quicksight/) to visualize the survey results. Amazon QuickSight is an analytics service that you can use to create datasets, perform one-time analyses, and build visualizations and dashboards.
@@ -77,22 +66,16 @@ First, create a new Amazon QuickSight dataset to read the JSON files stored in t
 
 [![Amazon Honeycode Survey app visualization with Amazon QuickSight](https://img.youtube.com/vi/uVx-Ni7bgE4/0.jpg)](https://www.youtube.com/watch?v=uVx-Ni7bgE4)
 
-* * *
-
 ## Cleanup
 
 You can remove the serverless API application by running the following command in the AWS Cloud9 IDE:
 
-
-> cdk destroy
-
-* * *
+```
+cdk destroy
+```
 
 ## Summary
 
 In this post, you created a survey application in Amazon Honeycode. You use Honeycode’s API to read and write data using a serverless API and finally you visualize the survey results using Amazon QuickSight. The possibilities in Honeycode are virtually endless. Let us know what you think in the comments!
 
 *Not yet a Honeycode customer? [Sign up for the free version here](https://www.honeycode.aws/?trk=el_a134p000006gNooAAE&trkCampaign=pac-edm-2020-honeycode-homepage&sc_channel=el&sc_campaign=pac-edm-2020-honeycode-website_links-adoption-quicksight_post_link&sc_outcome=Enterprise_Digital_Marketing&sc_geo=NAMER&sc_country=US)*.
-
-* * *
-
