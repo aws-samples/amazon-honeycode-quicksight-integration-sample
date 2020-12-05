@@ -7,7 +7,7 @@
 const AWS = require('aws-sdk')
 const HC = new AWS.Honeycode({ region: 'us-west-2' })
 const S3 = new AWS.S3()
-const { workbookId, appId, readScreenId, writeScreenId, screenAutomationId, s3bucket } = process.env
+const { workbookId, appId, readScreenId, writeScreenId, screenAutomationId, s3bucket, readListName, writePicklistName } = process.env
 
 const getSurveyResults = nextToken => HC.getScreenData({
     workbookId, appId, screenId: readScreenId, nextToken
@@ -25,7 +25,7 @@ const saveToS3 = Body => {
     return S3.putObject({ Body, Bucket: s3bucket, Key, ContentType: 'text/plain;charset=utf-8' }).promise()
 }
 
-const escape = str => str.indexOf && str.indexOf(',') !== -1 ? `"${str}"` : str
+//const escape = str => str.indexOf && str.indexOf(',') !== -1 ? `"${str}"` : str
 
 exports.handler = async () => {
     try {
@@ -39,10 +39,10 @@ exports.handler = async () => {
             nextToken = response.nextToken
             if (surveyResults.length === 0) {
                 //Include column headers
-                //surveyResults.push(response.results["Survey List"].headers.map(header => escape(header.name)).join(','))
-                surveyHeaders = response.results["Survey List"].headers.map(header => header.name)
+                //surveyResults.push(response.results[readListName].headers.map(header => escape(header.name)).join(','))
+                surveyHeaders = response.results[readListName].headers.map(header => header.name)
             }
-            for (let row of response.results["Survey List"].rows) {
+            for (let row of response.results[readListName].rows) {
                 const { rowId, dataItems } = row
                 surveyRows.push(rowId)
                 //surveyResults.push(dataItems.map(item => escape(item.formattedValue)).join(','))
@@ -52,20 +52,20 @@ exports.handler = async () => {
                 }, {}))
             }
         } while (nextToken)
-        if (surveyResults.length > 1) {
+        if (surveyResults.length > 0) {
             //Write survey result to S3
             //await saveToS3(surveyResults.join('\n'))
             await saveToS3(JSON.stringify(surveyResults, null, 2))
             //Update "In S3" column in survey results
             for (let rowId of surveyRows) {
                 await updateSurveyResults({
-                    Picklist: {
+                    [writePicklistName]: {
                         rawValue: rowId
                     }
                 })
             }
         }
-        const result = `Saved ${surveyResults.length} survey results to S3`
+        const result = `Saved ${surveyResults.length} records to S3`
         console.log(result)
         return result
     } catch (error) {

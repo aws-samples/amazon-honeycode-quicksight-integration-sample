@@ -18,6 +18,8 @@ In this post I show how to use two of Honeycode’s APIs:
 * **GetScreenData:** Reads data from a Honeycode app screen 
 * **InvokeScreenAutomation:** Invokes an action defined in a Honeycode app screen such as adding, overwriting, and deleting data
 
+>Tip: If you would like to learn about and use Honeycode's Table level APIs, refer to the related sample code repo here: [Amazon Honeycode Table API Integration Sample](https://github.com/aws-samples/amazon-honeycode-table-api-integration-sample)
+
 ## Prerequisite
 
 If you don’t have one already, [create a new Honeycode account](https://www.honeycode.aws/?trk=el_a134p000006gNooAAE&trkCampaign=pac-edm-2020-honeycode-homepage&sc_channel=el&sc_campaign=pac-edm-2020-honeycode-website_links-adoption-quicksight_post_link&sc_outcome=Enterprise_Digital_Marketing&sc_geo=NAMER&sc_country=US) and log in. To get started with the Honeycode APIs, [link your Honeycode team with your AWS account](https://honeycodecommunity.aws/t/connecting-honeycode-to-an-aws-account/98)
