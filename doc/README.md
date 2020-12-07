@@ -1,7 +1,5 @@
 # Use Amazon QuickSight to visualize data from Amazon Honeycode
 
-By Kandha Sankarapandian, *Senior Solutions Architect*
-
 [Amazon Honeycode](https://www.honeycode.aws/?trk=el_a134p000006gNooAAE&trkCampaign=pac-edm-2020-honeycode-homepage&sc_channel=el&sc_campaign=pac-edm-2020-honeycode-website_links-adoption-quicksight_post_link&sc_outcome=Enterprise_Digital_Marketing&sc_geo=NAMER&sc_country=US) gives you the power to build custom apps without programming. Honeycode apps are built in four simple steps: 
 
 1. Organize your data in Tables.
